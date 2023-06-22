@@ -24,13 +24,33 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 class Client implements Http
 {
-    private ClientInterface $http;
-    private RequestFactoryInterface $requestFactory;
-    private StreamFactoryInterface $streamFactory;
+    /**
+     * @var ClientInterface
+     */
+    private $http;
+
+    /**
+     * @var RequestFactoryInterface
+     */
+    private $requestFactory;
+
+    /**
+     * @var StreamFactoryInterface
+     */
+    private $streamFactory;
+
     /** @var array<string,string> */
-    private array $headers;
-    private string $baseUrl;
-    private Json $json;
+    private $headers;
+
+    /**
+     * @var string
+     */
+    private $baseUrl;
+
+    /**
+     * @var Json
+     */
+    private $json;
 
     /**
      * @param array<int, string> $clientAgents

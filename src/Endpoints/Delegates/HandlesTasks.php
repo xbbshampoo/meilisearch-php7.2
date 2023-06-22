@@ -12,7 +12,10 @@ use Meilisearch\Endpoints\Tasks;
 
 trait HandlesTasks
 {
-    protected Tasks $tasks;
+    /**
+     * @var Tasks
+     */
+    protected $tasks;
 
     public function getTask($uid): array
     {

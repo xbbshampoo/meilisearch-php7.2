@@ -10,7 +10,10 @@ use Meilisearch\Endpoints\Keys;
 
 trait HandlesKeys
 {
-    protected Keys $keys;
+    /**
+     * @var Keys
+     */
+    protected $keys;
 
     public function getKeys(KeysQuery $options = null): KeysResults
     {

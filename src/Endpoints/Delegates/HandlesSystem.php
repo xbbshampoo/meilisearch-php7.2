@@ -11,10 +11,25 @@ use Meilisearch\Endpoints\Version;
 
 trait HandlesSystem
 {
-    protected Health $health;
-    protected Version $version;
-    protected TenantToken $tenantToken;
-    protected Stats $stats;
+    /**
+     * @var Health
+     */
+    protected $health;
+
+    /**
+     * @var Version
+     */
+    protected $version;
+
+    /**
+     * @var TenantToken
+     */
+    protected $tenantToken;
+
+    /**
+     * @var Stats
+     */
+    protected $stats;
 
     public function health(): ?array
     {
@@ -49,7 +64,9 @@ trait HandlesSystem
 
     public function swapIndexes(array $indexes): array
     {
-        $options = array_map(static fn ($data) => ['indexes' => $data], $indexes);
+        $options = array_map(static function ($data) {
+            return ['indexes' => $data];
+        }, $indexes);
 
         return $this->index->swapIndexes($options);
     }

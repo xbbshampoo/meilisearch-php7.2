@@ -25,10 +25,25 @@ class Indexes extends Endpoint
 
     protected const PATH = '/indexes';
 
-    private ?string $uid;
-    private ?string $primaryKey;
-    private ?\DateTime $createdAt;
-    private ?\DateTime $updatedAt;
+    /**
+     * @var string|null
+     */
+    private $uid;
+
+    /**
+     * @var string|null
+     */
+    private $primaryKey;
+
+    /**
+     * @var \DateTime|null
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime|null
+     */
+    private $updatedAt;
 
     public function __construct(Http $http, $uid = null, $primaryKey = null, $createdAt = null, $updatedAt = null)
     {
@@ -48,7 +63,7 @@ class Indexes extends Endpoint
             $attributes['uid'],
             $attributes['primaryKey'],
             static::parseDate($attributes['createdAt']),
-            static::parseDate($attributes['updatedAt']),
+            static::parseDate($attributes['updatedAt'])
         );
     }
 

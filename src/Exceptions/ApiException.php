@@ -9,10 +9,24 @@ use Psr\Http\Message\ResponseInterface;
 class ApiException extends \Exception
 {
     public $httpStatus = 0;
+
     public $message;
-    public ?string $errorCode;
-    public ?string $errorType;
-    public ?string $errorLink;
+
+    /**
+     * @var string|null
+     */
+    public $errorCode;
+
+    /**
+     * @var string|null
+     */
+    public $errorType;
+
+    /**
+     * @var string|null
+     */
+    public $errorLink;
+
     public $httpBody;
 
     public const HINT_MESSAGE = "Hint: It might not be working because maybe you're not up to date with the Meilisearch version that `%s` call requires.";
@@ -31,22 +45,22 @@ class ApiException extends \Exception
 
     public function __toString()
     {
-        $base = 'Meilisearch ApiException: Http Status: '.$this->httpStatus;
+        $base = 'Meilisearch ApiException: Http Status: ' . $this->httpStatus;
 
         if (!\is_null($this->message)) {
-            $base .= ' - Message: '.$this->message;
+            $base .= ' - Message: ' . $this->message;
         }
 
         if (!\is_null($this->errorCode)) {
-            $base .= ' - Code: '.$this->errorCode;
+            $base .= ' - Code: ' . $this->errorCode;
         }
 
         if (!\is_null($this->errorType)) {
-            $base .= ' - Type: '.$this->errorType;
+            $base .= ' - Type: ' . $this->errorType;
         }
 
         if (!\is_null($this->errorLink)) {
-            $base .= ' - Link: '.$this->errorLink;
+            $base .= ' - Link: ' . $this->errorLink;
         }
 
         return $base;

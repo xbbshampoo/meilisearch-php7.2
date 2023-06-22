@@ -28,7 +28,6 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
         unset($this->data[$offset]);
     }
 
-    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         if (isset($this->data[$offset])) {

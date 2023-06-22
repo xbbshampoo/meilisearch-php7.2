@@ -8,7 +8,10 @@ use Meilisearch\Endpoints\Dumps;
 
 trait HandlesDumps
 {
-    protected Dumps $dumps;
+    /**
+     * @var Dumps
+     */
+    protected $dumps;
 
     public function createDump(): array
     {

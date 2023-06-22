@@ -8,7 +8,10 @@ use Meilisearch\Contracts\Http;
 
 trait HandlesMultiSearch
 {
-    protected Http $http;
+    /**
+     * @var Http
+     */
+    protected $http;
 
     /**
      * @param list<\Meilisearch\Contracts\SearchQuery> $queries

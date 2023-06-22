@@ -6,9 +6,20 @@ namespace Meilisearch\Contracts;
 
 class TasksResults extends Data
 {
-    private int $next;
-    private int $limit;
-    private int $from;
+    /**
+     * @var int
+     */
+    private $next;
+
+    /**
+     * @var int
+     */
+    private $limit;
+
+    /**
+     * @var int
+     */
+    private $from;
 
     public function __construct(array $params)
     {

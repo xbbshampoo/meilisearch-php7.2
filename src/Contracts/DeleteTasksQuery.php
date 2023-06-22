@@ -10,7 +10,10 @@ class DeleteTasksQuery
 {
     use TasksQueryTrait;
 
-    private array $canceledBy;
+    /**
+     * @var array
+     */
+    private $canceledBy;
 
     public function setCanceledBy(array $canceledBy)
     {

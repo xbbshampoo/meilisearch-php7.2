@@ -10,7 +10,10 @@ use Meilisearch\Endpoints\Indexes;
 
 trait HandlesIndex
 {
-    protected Indexes $index;
+    /**
+     * @var Indexes
+     */
+    protected $index;
 
     public function getIndexes(IndexesQuery $options = null): IndexesResults
     {

@@ -7,8 +7,16 @@ namespace Meilisearch\Contracts;
 abstract class Endpoint
 {
     protected const PATH = '';
-    protected Http $http;
-    protected ?string $apiKey;
+
+    /**
+     * @var Http
+     */
+    protected $http;
+
+    /**
+     * @var string|null
+     */
+    protected $apiKey;
 
     public function __construct(Http $http, string $apiKey = null)
     {

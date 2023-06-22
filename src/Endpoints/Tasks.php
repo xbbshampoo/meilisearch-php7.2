@@ -26,17 +26,13 @@ class Tasks extends Endpoint
     public function cancelTasks(?CancelTasksQuery $options): array
     {
         $options = $options ?? new CancelTasksQuery();
-        $response = $this->http->post('/tasks/cancel', null, $options->toArray());
-
-        return $response;
+        return $this->http->post('/tasks/cancel', null, $options->toArray());
     }
 
     public function deleteTasks(?DeleteTasksQuery $options): array
     {
         $options = $options ?? new DeleteTasksQuery();
-        $response = $this->http->delete(self::PATH, $options->toArray());
-
-        return $response;
+        return $this->http->delete(self::PATH, $options->toArray());
     }
 
     /**

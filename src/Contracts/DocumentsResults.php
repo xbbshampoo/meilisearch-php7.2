@@ -6,9 +6,20 @@ namespace Meilisearch\Contracts;
 
 class DocumentsResults extends Data
 {
-    private int $offset;
-    private int $limit;
-    private int $total;
+    /**
+     * @var int
+     */
+    private $offset;
+
+    /**
+     * @var int
+     */
+    private $limit;
+
+    /**
+     * @var int
+     */
+    private $total;
 
     public function __construct(array $params)
     {

@@ -13,18 +13,61 @@ class Keys extends Endpoint
 {
     protected const PATH = '/keys';
 
-    protected Keys $keys;
-    protected Http $http;
+    /**
+     * @var Keys
+     */
+    protected $keys;
 
-    private ?string $uid;
-    private ?string $name;
-    private ?string $key;
-    private ?string $description;
-    private ?array $actions;
-    private ?array $indexes;
-    private ?\DateTime $expiresAt;
-    private ?\DateTime $createdAt;
-    private ?\DateTime $updatedAt;
+    /**
+     * @var Http
+     */
+    protected $http;
+
+
+    /**
+     * @var string|null
+     */
+    private $uid;
+
+    /**
+     * @var string|null
+     */
+    private $name;
+
+    /**
+     * @var string|null
+     */
+    private $key;
+
+    /**
+     * @var string|null
+     */
+    private $description;
+
+    /**
+     * @var array|null
+     */
+    private $actions;
+
+    /**
+     * @var array|null
+     */
+    private $indexes;
+
+    /**
+     * @var \DateTime|null
+     */
+    private $expiresAt;
+
+    /**
+     * @var \DateTime|null
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime|null
+     */
+    private $updatedAt;
 
     public function __construct(Http $http, $uid = null, $name = null, $key = null, $description = null, $actions = null, $indexes = null, $expiresAt = null, $createdAt = null, $updatedAt = null)
     {
@@ -50,7 +93,7 @@ class Keys extends Endpoint
             $attributes['key'],
             $attributes['description'],
             $attributes['actions'],
-            $attributes['indexes'],
+            $attributes['indexes']
         );
         if ($attributes['expiresAt']) {
             $key->expiresAt = $this->createDate($attributes['expiresAt']);

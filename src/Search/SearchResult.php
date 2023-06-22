@@ -9,42 +9,79 @@ class SearchResult implements \Countable, \IteratorAggregate
     /**
      * @var array<int, array<string, mixed>>
      */
-    private array $hits;
+    private $hits;
 
     /**
      * `estimatedTotalHits` is the attributes returned by the Meilisearch server
      * and its value will not be modified by the methods in this class.
      * Please, use `hitsCount` if you want to know the real size of the `hits` array at any time.
      */
-    private ?int $estimatedTotalHits;
-    private ?int $hitsCount;
-    private ?int $offset;
-    private ?int $limit;
+    private $estimatedTotalHits;
 
-    private ?int $hitsPerPage;
-    private ?int $page;
-    private ?int $totalPages;
-    private ?int $totalHits;
+    /**
+     * @var int|null
+     */
+    private $hitsCount;
 
-    private int $processingTimeMs;
-    private bool $numberedPagination;
+    /**
+     * @var int|null
+     */
+    private $offset;
 
-    private string $query;
+    /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
+     * @var int|null
+     */
+    private $hitsPerPage;
+
+    /**
+     * @var int|null
+     */
+    private $page;
+
+    /**
+     * @var int|null
+     */
+    private $totalPages;
+
+    /**
+     * @var int|null
+     */
+    private $totalHits;
+
+    /**
+     * @var int
+     */
+    private $processingTimeMs;
+
+    /**
+     * @var bool
+     */
+    private $numberedPagination;
+
+    /**
+     * @var string
+     */
+    private $query;
 
     /**
      * @var array<string, mixed>
      */
-    private array $facetDistribution;
+    private $facetDistribution;
 
     /**
      * @var array<string, mixed>
      */
-    private array $facetStats;
+    private $facetStats;
 
     /**
      * @var array<string, mixed>
      */
-    private array $raw;
+    private $raw;
 
     public function __construct(array $body)
     {

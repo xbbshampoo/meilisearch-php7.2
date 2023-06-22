@@ -6,10 +6,25 @@ namespace Meilisearch\Contracts;
 
 class DocumentsQuery
 {
-    private int $offset;
-    private int $limit;
-    private array $fields;
-    private array $filter;
+    /**
+     * @var int
+     */
+    private $offset;
+
+    /**
+     * @var int
+     */
+    private $limit;
+
+    /**
+     * @var array
+     */
+    private $fields;
+
+    /**
+     * @var array
+     */
+    private $filter;
 
     public function setOffset(int $offset): DocumentsQuery
     {

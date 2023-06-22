@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Meilisearch\Endpoints;
 
-use DateTime;
 use Meilisearch\Contracts\Endpoint;
 use Meilisearch\Exceptions\InvalidArgumentException;
 use Meilisearch\Http\Serialize\Json;
