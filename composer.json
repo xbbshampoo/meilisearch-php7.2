@@ -19,7 +19,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.2",
+        "php": "^7.2 || ^8.0",
         "ext-json": "*",
         "php-http/discovery": "^1.7",
         "php-http/httplug": "^2.1",
