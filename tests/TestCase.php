@@ -41,9 +41,20 @@ abstract class TestCase extends BaseTestCase
         'expiresAt' => null,
     ];
 
-    protected Client $client;
-    protected string $host;
-    protected ?string $defaultKey;
+    /**
+     * @var Client
+     */
+    protected $client;
+
+    /**
+     * @var string
+     */
+    protected $host;
+
+    /**
+     * @var string|null
+     */
+    protected $defaultKey;
 
     protected function setUp(): void
     {

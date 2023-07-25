@@ -9,7 +9,10 @@ use Tests\TestCase;
 
 final class TypoToleranceTest extends TestCase
 {
-    private Indexes $index;
+    /**
+     * @var Indexes
+     */
+    private $index;
 
     public const DEFAULT_TYPO_TOLERANCE = [
         'enabled' => true,

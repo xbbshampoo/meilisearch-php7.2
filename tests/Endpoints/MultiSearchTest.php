@@ -10,8 +10,15 @@ use Tests\TestCase;
 
 final class MultiSearchTest extends TestCase
 {
-    private Indexes $booksIndex;
-    private Indexes $songsIndex;
+    /**
+     * @var Indexes
+     */
+    private $booksIndex;
+
+    /**
+     * @var Indexes
+     */
+    private $songsIndex;
 
     protected function setUp(): void
     {

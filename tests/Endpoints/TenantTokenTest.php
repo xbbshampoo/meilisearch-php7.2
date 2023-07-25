@@ -12,9 +12,18 @@ use Tests\TestCase;
 final class TenantTokenTest extends TestCase
 {
     private $key;
+
     private $privateKey;
-    private Client $privateClient;
-    private string $indexName;
+
+    /**
+     * @var Client
+     */
+    private $privateClient;
+
+    /**
+     * @var string
+     */
+    private $indexName;
 
     protected function setUp(): void
     {

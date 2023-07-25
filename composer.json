@@ -23,7 +23,8 @@
         "ext-json": "*",
         "php-http/discovery": "^1.7",
         "php-http/httplug": "^2.1",
-        "php-http/client-common": "^2.0"
+        "php-http/client-common": "^2.0",
+        "symfony/polyfill-php73": "^1.27"
     },
     "autoload": {
         "psr-4": {

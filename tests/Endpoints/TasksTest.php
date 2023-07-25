@@ -12,8 +12,15 @@ use Tests\TestCase;
 
 final class TasksTest extends TestCase
 {
-    private Indexes $index;
-    private string $indexName;
+    /**
+     * @var Indexes
+     */
+    private $index;
+
+    /**
+     * @var string
+     */
+    private $indexName;
 
     protected function setUp(): void
     {

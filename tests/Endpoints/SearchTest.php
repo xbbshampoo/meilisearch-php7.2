@@ -10,7 +10,10 @@ use Tests\TestCase;
 
 final class SearchTest extends TestCase
 {
-    private Indexes $index;
+    /**
+     * @var Indexes
+     */
+    private $index;
 
     protected function setUp(): void
     {
@@ -793,7 +796,7 @@ final class SearchTest extends TestCase
 
         $response = $this->index->search(
             null,
-            ['facets' => ['info.reviewNb']],
+            ['facets' => ['info.reviewNb']]
         );
 
         $this->assertEquals(['info.reviewNb' => ['min' => 50, 'max' => 1000]], $response->getFacetStats());

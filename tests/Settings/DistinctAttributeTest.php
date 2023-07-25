@@ -9,7 +9,10 @@ use Tests\TestCase;
 
 final class DistinctAttributeTest extends TestCase
 {
-    private Indexes $index;
+    /**
+     * @var Indexes
+     */
+    private $index;
 
     protected function setUp(): void
     {
