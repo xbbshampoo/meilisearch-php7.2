@@ -7,19 +7,21 @@ namespace Meilisearch\Contracts;
 class TasksResults extends Data
 {
     /**
-     * @var int
+     * @var int<0, max>
      */
     private $next;
-
     /**
-     * @var int
+     * @var int<0, max>
      */
     private $limit;
-
     /**
-     * @var int
+     * @var int<0, max>
      */
     private $from;
+    /**
+     * @var int<0, max>
+     */
+    private $total;
 
     public function __construct(array $params)
     {
@@ -28,6 +30,7 @@ class TasksResults extends Data
         $this->from = $params['from'] ?? 0;
         $this->limit = $params['limit'] ?? 0;
         $this->next = $params['next'] ?? 0;
+        $this->total = $params['total'] ?? 0;
     }
 
     /**
@@ -53,6 +56,11 @@ class TasksResults extends Data
         return $this->from;
     }
 
+    public function getTotal(): int
+    {
+        return $this->total;
+    }
+
     public function toArray(): array
     {
         return [
@@ -60,6 +68,7 @@ class TasksResults extends Data
             'next' => $this->next,
             'limit' => $this->limit,
             'from' => $this->from,
+            'total' => $this->total,
         ];
     }
 
