@@ -9,7 +9,10 @@ use Tests\TestCase;
 
 final class SeparatorTokensTest extends TestCase
 {
-    private Indexes $index;
+    /**
+     * @var Indexes
+     */
+    private $index;
 
     public const DEFAULT_SEPARATOR_TOKENS = [];
 
