@@ -8,7 +8,10 @@ use Meilisearch\Endpoints\Snapshots;
 
 trait HandlesSnapshots
 {
-    protected Snapshots $snapshots;
+    /**
+     * @var Snapshots
+     */
+    protected $snapshots;
 
     public function createSnapshot(): array
     {
