@@ -34,7 +34,7 @@ final class TypoToleranceTest extends TestCase
     {
         $response = $this->index->getTypoTolerance();
 
-        $this->assertEquals(self::DEFAULT_TYPO_TOLERANCE, $response);
+        self::assertSame(self::DEFAULT_TYPO_TOLERANCE, $response);
     }
 
     public function testUpdateTypoTolerance(): void
@@ -53,7 +53,7 @@ final class TypoToleranceTest extends TestCase
         $typoTolerance = $this->index->getTypoTolerance();
 
         $this->assertIsValidPromise($promise);
-        $this->assertEquals($newTypoTolerance, $typoTolerance);
+        self::assertSame($newTypoTolerance, $typoTolerance);
     }
 
     public function testResetTypoTolerance(): void
@@ -63,6 +63,6 @@ final class TypoToleranceTest extends TestCase
         $typoTolerance = $this->index->getTypoTolerance();
 
         $this->assertIsValidPromise($promise);
-        $this->assertEquals(self::DEFAULT_TYPO_TOLERANCE, $typoTolerance);
+        self::assertSame(self::DEFAULT_TYPO_TOLERANCE, $typoTolerance);
     }
 }

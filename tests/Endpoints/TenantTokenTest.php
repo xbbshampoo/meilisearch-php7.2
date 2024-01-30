@@ -58,8 +58,8 @@ final class TenantTokenTest extends TestCase
         $tokenClient = new Client($this->host, $token);
         $response = $tokenClient->index('tenantToken')->search('');
 
-        $this->assertArrayHasKey('hits', $response->toArray());
-        $this->assertCount(7, $response->getHits());
+        self::assertArrayHasKey('hits', $response->toArray());
+        self::assertCount(7, $response->getHits());
     }
 
     public function testGenerateTenantTokenWithSearchRulesAsObject(): void
@@ -71,8 +71,8 @@ final class TenantTokenTest extends TestCase
         $tokenClient = new Client($this->host, $token);
         $response = $tokenClient->index('tenantToken')->search('');
 
-        $this->assertArrayHasKey('hits', $response->toArray());
-        $this->assertCount(7, $response->getHits());
+        self::assertArrayHasKey('hits', $response->toArray());
+        self::assertCount(7, $response->getHits());
     }
 
     public function testGenerateTenantTokenWithFilter(): void
@@ -88,8 +88,8 @@ final class TenantTokenTest extends TestCase
         $tokenClient = new Client($this->host, $token);
         $response = $tokenClient->index('tenantToken')->search('');
 
-        $this->assertArrayHasKey('hits', $response->toArray());
-        $this->assertCount(4, $response->getHits());
+        self::assertArrayHasKey('hits', $response->toArray());
+        self::assertCount(4, $response->getHits());
     }
 
     public function testGenerateTenantTokenWithSearchRulesOnOneIndex(): void
@@ -101,8 +101,8 @@ final class TenantTokenTest extends TestCase
         $tokenClient = new Client($this->host, $token);
         $response = $tokenClient->index($this->indexName)->search('');
 
-        $this->assertArrayHasKey('hits', $response->toArray());
-        $this->assertArrayHasKey('query', $response->toArray());
+        self::assertArrayHasKey('hits', $response->toArray());
+        self::assertArrayHasKey('query', $response->toArray());
         $this->expectException(ApiException::class);
         $tokenClient->index($indexName)->search('');
     }
@@ -117,7 +117,7 @@ final class TenantTokenTest extends TestCase
         $tokenClient = new Client($this->host, $token);
         $response = $tokenClient->index($this->indexName)->search('');
 
-        $this->assertArrayHasKey('hits', $response->toArray());
+        self::assertArrayHasKey('hits', $response->toArray());
     }
 
     public function testGenerateTenantTokenWithExpiresAt(): void
@@ -132,7 +132,7 @@ final class TenantTokenTest extends TestCase
         $tokenClient = new Client($this->host, $token);
         $response = $tokenClient->index($this->indexName)->search('');
 
-        $this->assertArrayHasKey('hits', $response->toArray());
+        self::assertArrayHasKey('hits', $response->toArray());
     }
 
     public function testGenerateTenantTokenWithSearchRulesEmptyArray(): void
