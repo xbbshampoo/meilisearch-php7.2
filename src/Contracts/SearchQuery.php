@@ -104,17 +104,17 @@ class SearchQuery
     /**
      * @var array|null
      */
-    private $attributesToSearchOn = null;
+    private $attributesToSearchOn;
 
     /**
      * @var bool|null
      */
-    private $showRankingScore = null;
+    private $showRankingScore;
 
     /**
      * @var bool|null
      */
-    private $showRankingScoreDetails = null;
+    private $showRankingScoreDetails;
 
     public function setQuery(string $q): SearchQuery
     {

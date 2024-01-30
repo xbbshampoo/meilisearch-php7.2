@@ -9,27 +9,27 @@ class FacetSearchQuery
     /**
      * @var string|null
      */
-    private $q = null;
+    private $q;
 
     /**
      * @var string|null
      */
-    private $matchingStrategy = null;
+    private $matchingStrategy;
 
     /**
      * @var array|null
      */
-    private $filter = null;
+    private $filter;
 
     /**
      * @var string|null
      */
-    private $facetQuery = null;
+    private $facetQuery;
 
     /**
      * @var string|null
      */
-    private $facetName = null;
+    private $facetName;
 
     public function setQuery(string $q): FacetSearchQuery
     {
