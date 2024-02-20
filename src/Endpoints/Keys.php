@@ -200,7 +200,7 @@ class Keys extends Endpoint
         return $this->fill($response);
     }
 
-    public function all(KeysQuery $options = null): KeysResults
+    public function all(?KeysQuery $options = null): KeysResults
     {
         $query = isset($options) ? $options->toArray() : [];
 

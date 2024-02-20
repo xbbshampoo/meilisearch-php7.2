@@ -18,7 +18,7 @@ abstract class Endpoint
      */
     protected $apiKey;
 
-    public function __construct(Http $http, string $apiKey = null)
+    public function __construct(Http $http, ?string $apiKey = null)
     {
         $this->http = $http;
         $this->apiKey = $apiKey;

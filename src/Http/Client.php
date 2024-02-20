@@ -57,11 +57,11 @@ class Client implements Http
      */
     public function __construct(
         string $url,
-        string $apiKey = null,
-        ClientInterface $httpClient = null,
-        RequestFactoryInterface $reqFactory = null,
+        ?string $apiKey = null,
+        ?ClientInterface $httpClient = null,
+        ?RequestFactoryInterface $reqFactory = null,
         array $clientAgents = [],
-        StreamFactoryInterface $streamFactory = null
+        ?StreamFactoryInterface $streamFactory = null
     ) {
         $this->baseUrl = $url;
         $this->http = $httpClient ?? Psr18ClientDiscovery::find();
@@ -99,7 +99,7 @@ class Client implements Http
      * @throws CommunicationException
      * @throws JsonEncodingException
      */
-    public function post(string $path, $body = null, array $query = [], string $contentType = null)
+    public function post(string $path, $body = null, array $query = [], ?string $contentType = null)
     {
         if (!\is_null($contentType)) {
             $this->headers['Content-type'] = $contentType;
@@ -115,7 +115,7 @@ class Client implements Http
         return $this->execute($request);
     }
 
-    public function put(string $path, $body = null, array $query = [], string $contentType = null)
+    public function put(string $path, $body = null, array $query = [], ?string $contentType = null)
     {
         if (!\is_null($contentType)) {
             $this->headers['Content-type'] = $contentType;

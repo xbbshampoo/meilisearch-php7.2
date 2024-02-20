@@ -92,7 +92,7 @@ class Indexes extends Endpoint
         return $this->http->post(self::PATH, $options);
     }
 
-    public function all(IndexesQuery $options = null): IndexesResults
+    public function all(?IndexesQuery $options = null): IndexesResults
     {
         $indexes = [];
         $query = isset($options) ? $options->toArray() : [];
@@ -174,7 +174,7 @@ class Indexes extends Endpoint
         return $this->http->get('/tasks/'.$uid);
     }
 
-    public function getTasks(TasksQuery $options = null): TasksResults
+    public function getTasks(?TasksQuery $options = null): TasksResults
     {
         $options = $options ?? new TasksQuery();
 

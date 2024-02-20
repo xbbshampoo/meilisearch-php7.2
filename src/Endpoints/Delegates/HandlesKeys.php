@@ -15,7 +15,7 @@ trait HandlesKeys
      */
     protected $keys;
 
-    public function getKeys(KeysQuery $options = null): KeysResults
+    public function getKeys(?KeysQuery $options = null): KeysResults
     {
         return $this->keys->all($options);
     }
