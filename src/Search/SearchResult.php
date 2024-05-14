@@ -15,6 +15,8 @@ class SearchResult implements \Countable, \IteratorAggregate
      * `estimatedTotalHits` is the attributes returned by the Meilisearch server
      * and its value will not be modified by the methods in this class.
      * Please, use `hitsCount` if you want to know the real size of the `hits` array at any time.
+     *
+     * @var int|null
      */
     private $estimatedTotalHits;
 
@@ -32,6 +34,11 @@ class SearchResult implements \Countable, \IteratorAggregate
      * @var int|null
      */
     private $limit;
+
+    /**
+     * @var int|null
+     */
+    private $semanticHitCount;
 
     /**
      * @var int|null
@@ -102,6 +109,7 @@ class SearchResult implements \Countable, \IteratorAggregate
             $this->hitsCount = $body['totalHits'];
         }
 
+        $this->semanticHitCount = $body['semanticHitCount'] ?? 0;
         $this->hits = $body['hits'] ?? [];
         $this->processingTimeMs = $body['processingTimeMs'];
         $this->query = $body['query'];
@@ -172,6 +180,14 @@ class SearchResult implements \Countable, \IteratorAggregate
     public function getHitsCount(): int
     {
         return $this->hitsCount;
+    }
+
+    /**
+     * @return non-negative-int
+     */
+    public function getSemanticHitCount(): int
+    {
+        return $this->semanticHitCount;
     }
 
     public function count(): int

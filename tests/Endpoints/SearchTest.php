@@ -703,6 +703,7 @@ final class SearchTest extends TestCase
 
         $response = $index->search('', ['vector' => [1], 'hybrid' => ['semanticRatio' => 1.0]]);
 
+        self::assertSame(0, $response->getSemanticHitCount());
         self::assertEmpty($response->getHits());
     }
 
