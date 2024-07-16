@@ -104,17 +104,27 @@ class SearchQuery
     /**
      * @var array|null
      */
-    private $attributesToSearchOn;
+    private $attributesToSearchOn = null;
 
     /**
      * @var bool|null
      */
-    private $showRankingScore;
+    private $showRankingScore = null;
 
     /**
      * @var bool|null
      */
-    private $showRankingScoreDetails;
+    private $showRankingScoreDetails = null;
+
+    /**
+     * @var float|null
+     */
+    private $rankingScoreThreshold = null;
+
+    /**
+     * @var string|null
+     */
+    private $distinct = null;
 
     public function setQuery(string $q): SearchQuery
     {
@@ -212,6 +222,23 @@ class SearchQuery
     public function setShowRankingScoreDetails(?bool $showRankingScoreDetails): SearchQuery
     {
         $this->showRankingScoreDetails = $showRankingScoreDetails;
+
+        return $this;
+    }
+
+    public function setRankingScoreThreshold(?float $rankingScoreThreshold): SearchQuery
+    {
+        $this->rankingScoreThreshold = $rankingScoreThreshold;
+
+        return $this;
+    }
+
+    /**
+     * @param non-empty-string|null $distinct
+     */
+    public function setDistinct(?string $distinct): SearchQuery
+    {
+        $this->distinct = $distinct;
 
         return $this;
     }
@@ -316,6 +343,8 @@ class SearchQuery
             'attributesToSearchOn' => $this->attributesToSearchOn,
             'showRankingScore' => $this->showRankingScore,
             'showRankingScoreDetails' => $this->showRankingScoreDetails,
+            'rankingScoreThreshold' => $this->rankingScoreThreshold,
+            'distinct' => $this->distinct,
         ], function ($item) { return null !== $item; });
     }
 }
